@@ -6,7 +6,7 @@ Here are some examples of bookmark sites:
 
 - [Jason Kottke](https://kottke.org/)
 - [Jeremy Keith](https://adactio.com/links)
-- [Andy Baio](https://waxy.org/category/links/)
+- [Andy Baio](https://waxy.org/category/links/) 
 - [Ali Smith](https://bookmarks.alasdairsmith.co.uk/)
 
 Your task is to write code which allows a user to save a link with a short description and share them with others.
