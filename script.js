@@ -22,13 +22,17 @@ userSelect.appendChild(defaultOption);
 
 users.forEach(user=>{
   const option = document.createElement("option");
-  option.textContent = user;
-  option.value= user;
+  //  User IDs in Dropdown
+  option.textContent = `User ${user}`;  // Shows "User 1", "User 2"
+  option.value= user; // Value is "1", "2", "3"
   userSelect.appendChild(option);
 });
 
 userSelect.addEventListener("change", function(){
+  const selectedUser = userSelect.value;
   
+
+
 })
 };
 
