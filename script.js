@@ -27,5 +27,5 @@ users.forEach(user=>{
   userSelect.appendChild(option);
 })
 };
-// You can also access functions defined in this file from other files, as long as you export them. For example, if you wanted to export a function called "myFunction", you would add the following line at the end of this file:
+// You can also access functions defined in this file from other files, as long as you export them. For example, if you wanted to export a function called "myFunction", you would add the following line at the end of this file
 
