@@ -4,7 +4,7 @@
 // Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
 // You can't open the index.html file using a file:// URL.
 
-import { getUserIds, getData } from "./storage.js";
+import { getUserIds, getData , setData} from "./storage.js";
 
 window.onload = function () {
   const users = getUserIds();
@@ -80,7 +80,7 @@ window.onload = function () {
       
 
       // create and add the like counter display
-
+      let currentLikes = 0;
       const likeCount = document.createElement("p");
       likeCount.textContent = "Like: 0";
       bookmarkDiv.appendChild(likeCount);
@@ -89,6 +89,11 @@ window.onload = function () {
 
       const likeButton = document.createElement("button");
       likeButton.textContent = "Like";
+
+      likeButton.addEventListener("click", function() {
+        currentLikes++;  // increaseCurrentLikes
+        likeCount.textContent = `Likes: ${currentLikes}`; // updates current likes
+      })
       bookmarkDiv.appendChild(likeButton);
 
       // Add this complete bookmark div to the main container
