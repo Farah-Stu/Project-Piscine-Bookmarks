@@ -20,16 +20,6 @@ const userCount = document.getElementById("userCount");
 const CURRENT_USER_KEY = "currentUserId";
 let currentUserId = null;
 
-// Save/ load current user to/ from localStorage
-function saveCurrentUser(userId) {
-  localStorage.setItem(CURRENT_USER_KEY, userId);
-}
-
-// Load current user from localStorage
-function loadCurrentUser() {
-  return localStorage.getItem(CURRENT_USER_KEY);
-}
-
 // Load users into the dropdown menu
 function loadUsers() {
   const users = getUserIds();
