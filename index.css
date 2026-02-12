@@ -30,7 +30,7 @@ h3 {
   font-size: 1.2em;
 }
 #userCount {
-  color: #7f8c8d;
+  color: #2c3e50;
   margin-bottom: 20px;
 }
 /* User selector  style*/
@@ -94,15 +94,18 @@ button {
   padding: 0.4rem 0.75rem;
   font-size: 0.9rem;
   cursor: pointer;
-background-color: #7aa6c3;
+  background-color: #0b5ed7;
+  color: #ffffff;
+  border: none;
 }
 button:hover {
-  background-color: #79b3da;
+  background-color: #094db1;
 }
-button:focus {
-  outline: 2px solid #646161;
+button:focus-visible {
+  outline: 3px solid #000000;
   outline-offset: 2px;
 }
+
 
     /* Form  styles */
 form {
@@ -143,6 +146,7 @@ small {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  
 }
 
 #bookmarkContainer button:hover {

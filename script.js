@@ -50,22 +50,13 @@ function loadUsers() {
     option.textContent = `User ${id}`;
     userSelect.appendChild(option);
   });
+  // Reset current user
+  currentUserId = null;
+  userSelect.value = ""; // ensures placeholder is selected
+
   // Update user count
   userCount.textContent = `Total users: ${users.length}`;
-  // Try to restore the selected user
-  const savedUserId = loadCurrentUser();
-  if (savedUserId && users.includes(savedUserId)) {
-    // If saved user exists in the list, use it
-    currentUserId = savedUserId;
-  } else if (users.length > 0) {
-    // Otherwise, default to first user
-    currentUserId = users[0];
-    saveCurrentUser(currentUserId);
-  }
-  // Set the dropdown value
-  if (currentUserId) {
-    userSelect.value = currentUserId;
-  }
+
 }
 // Display the bookmarks for the current user
 function displayBookmarks() {
@@ -88,15 +79,18 @@ function displayBookmarks() {
     article.className = "bookmark";
     
     const title = document.createElement("h3");
+    const label = document.createTextNode("Title: ");
     const link = document.createElement("a");
     link.href = bookmark.url;
     link.textContent = bookmark.title;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    title.appendChild(link);
+    title.append(label, link);
     
+
     const description = document.createElement("p");
-    description.textContent = bookmark.description;
+    
+    description.textContent =  "Description: " + bookmark.description;
     
     const time = document.createElement("time");
     time.dateTime = new Date(bookmark.createdAt).toISOString();
@@ -145,7 +139,6 @@ function displayBookmarks() {
 // Handle user change event
 userSelect.addEventListener("change", (event) => {
   currentUserId = event.target.value;
-  saveCurrentUser(currentUserId); // SAVE when user changes
   displayBookmarks();
 });
 
