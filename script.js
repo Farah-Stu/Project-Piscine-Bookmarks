@@ -14,10 +14,7 @@ const userCount = document.getElementById("userCount");
 const CURRENT_USER_KEY = "currentUserId";
 let currentUserId = null;
 //check URL 
-function isValidUrl(string) {
-  const pattern = /^(https?:\/\/)([\w-]+\.)+[\w-]+(\/[\w-.~:?#[\]@!$&'()*+,;=%]*)?$/i;
-  return pattern.test(string);
-}
+
 
 // Load users into the dropdown menu
 function loadUsers() {
@@ -140,16 +137,19 @@ form.addEventListener("submit", (event) => {
     return;
   }
   
+
   const titleTrimmed = titleInput.value.trim();
   const descriptionTrimmed = descriptionInput.value.trim();
   const urlTrimmed = urlInput.value.trim();
 
-  
-  if (!isValidUrl(urlTrimmed)) {
-    alert("Please enter a valid URL");
-    urlInput.focus();
-    return;
-  }
+
+
+if (!isValidUrl(urlTrimmed)) {
+  alert("Please enter a valid URL (must start with http:// or https://)");
+  urlInput.focus();
+  return;
+}
+
 
   // BLOCK if empty after trimming
   if (!titleTrimmed) {
