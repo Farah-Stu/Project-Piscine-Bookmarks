@@ -1,9 +1,3 @@
-// This is a placeholder file which shows how you can access functions defined in other files.
-// It can be loaded into index.html.
-// You can delete the contents of the file once you have understood how it works.
-// Note that when running locally, in order to open a web page which uses modules, you must serve the directory over HTTP e.g. with https://www.npmjs.com/package/http-server
-// You can't open the index.html file using a file:// URL.
-
 import { getUserIds, getData, setData } from "./storage.js";
 import { incrementLikes, sortedByNewest } from './utils.js';
 
@@ -20,10 +14,7 @@ const userCount = document.getElementById("userCount");
 const CURRENT_USER_KEY = "currentUserId";
 let currentUserId = null;
 //check URL 
-function isValidUrl(string) {
-  const pattern = /^(https?:\/\/)([\w-]+\.)+[\w-]+(\/[\w-.~:?#[\]@!$&'()*+,;=%]*)?$/i;
-  return pattern.test(string);
-}
+
 
 // Load users into the dropdown menu
 function loadUsers() {
@@ -146,16 +137,19 @@ form.addEventListener("submit", (event) => {
     return;
   }
   
+
   const titleTrimmed = titleInput.value.trim();
   const descriptionTrimmed = descriptionInput.value.trim();
   const urlTrimmed = urlInput.value.trim();
 
-  
-  if (!isValidUrl(urlTrimmed)) {
-    alert("Please enter a valid URL");
-    urlInput.focus();
-    return;
-  }
+
+
+if (!isValidUrl(urlTrimmed)) {
+  alert("Please enter a valid URL (must start with http:// or https://)");
+  urlInput.focus();
+  return;
+}
+
 
   // BLOCK if empty after trimming
   if (!titleTrimmed) {
